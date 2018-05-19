@@ -5,4 +5,8 @@ class Vote < ApplicationRecord
   # Cannot create a new `Vote` without a `user` and a `hack`
   validates :user, presence: true
   validates :hack, presence: true
+
+  # Only one vote by user for the same hack
+  validates :hack, uniqueness: { scope: :user,
+    message: "Only on vote per user" }
 end
