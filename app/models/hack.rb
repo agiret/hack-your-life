@@ -1,6 +1,7 @@
 class Hack < ApplicationRecord
   belongs_to :user
   belongs_to :category
+  has_many :votes, dependent: :destroy
 
   # Cannot create a new `Hack` without a `link`, `category`and `user`
   validates :link, presence: true

@@ -1,4 +1,9 @@
 class Category < ApplicationRecord
+  has_many :hacks
+  has_many :votes, through: :hacks
+  has_many :users, through: :hacks
+
+
   # Cannot create a new `Category` without a `name`
   validates :name, presence: true
 
