@@ -9,4 +9,5 @@ class Vote < ApplicationRecord
   # Only one vote by user for the same hack
   validates :hack, uniqueness: { scope: :user,
     message: "Only on vote per user" }
+  # validates_uniqueness_of :booking_date, scope: [:wheely_id]
 end
