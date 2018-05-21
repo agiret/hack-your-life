@@ -6,12 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-p 'Suppression des données existances...'
+p 'Suppression des données existantes...'
 Hack.destroy_all
 Category.destroy_all
 User.destroy_all
 
-p 'Créations du jeu de données...'
+p 'Création du jeu de données...'
 # Categories
 p '-> Categories'
 CAT = []
