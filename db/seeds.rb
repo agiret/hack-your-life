@@ -32,4 +32,9 @@ Hack.create!(link: "www.google.com", user_id: User.first.id, category_id: CAT[0]
 Hack.create!(link: "www.lemonde.fr", user_id: User.last.id, category_id: CAT[1].id)
 Hack.create!(link: "www.lewagon.com", user_id: User.first.id, category_id: CAT[0].id)
 
+# Votes
+p '-> Votes'
+Vote.create!(user_id: User.first.id, hack_id: Hack.first.id)
+Vote.create!(user_id: User.last.id, hack_id: Hack.first.id)
+
 p 'Jeu de données créé !'

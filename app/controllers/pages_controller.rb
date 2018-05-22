@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @hacks = Hack.all
+    @hack_votes = @votes.select{ |vote| vote.hack_id == @hack } # synthaxe à trouver...
   end
 end
