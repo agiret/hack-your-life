@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   def home
     @hacks = Hack.all
     @votes = Vote.all
-    @hack_votes = hack_votes
+    # @hack_votes = hack_votes
   end
 
   private
@@ -14,13 +14,14 @@ class PagesController < ApplicationController
   #   @hack = Hack.find(params[:id])
   # end
 
+  def hack_votes(id)
+    # @hack = Hack.find(params[:id])
+    votes = @votes.select{ |vote| vote.hack_id == id }
+  end
+
   def hack_params
     params.require(:hack).permit(:link, :vues, :user_id, :category_id)
   end
 
-  def hack_votes
-    @hack = Hack.find(params[:id])
-    votes = @votes.select{ |vote| vote.hack_id == @hack.id }
-  end
 
 end

@@ -3,7 +3,7 @@
 <div>
   <ol>
     <% @hacks.each do |hack| %>
-      <li><%= "#{hack.link} - Catégorie : #{hack.category.name} - Votes : #{@hack_votes} - Ajouté le #{hack.created_at}" %></li>
+      <li><%= "#{hack.link} - Catégorie : #{hack.category.name} - Votes : #{hack.votes.count} - Ajouté le #{hack.created_at}" %></li>
     <% end %>
   </ol>
 </div>
