@@ -1,8 +1,26 @@
 class PagesController < ApplicationController
+  # before_action :set_hack, only: [:home]
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
     @hacks = Hack.all
-    @hack_votes = @votes.select{ |vote| vote.hack_id == @hack } # synthaxe à trouver...
+    @votes = Vote.all
+    @hack_votes = hack_votes
   end
+
+  private
+
+  # def set_hack
+  #   @hack = Hack.find(params[:id])
+  # end
+
+  def hack_params
+    params.require(:hack).permit(:link, :vues, :user_id, :category_id)
+  end
+
+  def hack_votes
+    @hack = Hack.find(params[:id])
+    votes = @votes.select{ |vote| vote.hack_id == @hack.id }
+  end
+
 end
