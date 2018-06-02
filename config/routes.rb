@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :hacks, except: [:show] do
-    resources :votes, only: [:create, :new, :destroy]
+    # resources :votes, only: [:create, :new, :destroy]
+    member do
+      post 'upvote'
+    end
   end
-
-
-
 
 
 end

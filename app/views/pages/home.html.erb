@@ -4,6 +4,7 @@
   <ol>
     <% @hacks.each do |hack| %>
       <li><%= "#{hack.link} - Catégorie : #{hack.category.name} - Votes : #{hack.votes.count} - Ajouté le #{hack.created_at}" %></li>
+      <%= link_to "Upvote", upvote_hack_path(hack), method: :post %>
     <% end %>
   </ol>
 </div>
