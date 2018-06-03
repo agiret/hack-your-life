@@ -4,10 +4,11 @@ Rails.application.routes.draw do
 
   resources :hacks, except: [:show] do
     # resources :votes, only: [:create, :new, :destroy]
-    member do
-      post 'upvote'
-    end
+    post :upvote
+    delete :downvote
+    # member do
+    #   post 'upvote'
+    # end
   end
-
 
 end
