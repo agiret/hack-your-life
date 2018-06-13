@@ -1,8 +1,9 @@
 <h1>Facile à faire</h1>
 <p>Hack Your Life</p>
 <div>
+  <% best_hacks = @hacks.sort_by{ |hack| hack.votes.count }.reverse %>
   <ol>
-    <% @hacks.each do |hack| %>
+    <% best_hacks.each do |hack| %>
       <li><%= "#{hack.link} - Catégorie : #{hack.category.name} - Votes : #{hack.votes.count} - Ajouté le #{hack.created_at}" %></li>
       <% if current_user && hack.votes.where(user: current_user).first %>
         <%= button_to 'Downvote', hack_downvote_path(hack), method: :delete %>
@@ -12,4 +13,3 @@
     <% end %>
   </ol>
 </div>
-
