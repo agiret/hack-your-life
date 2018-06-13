@@ -9,7 +9,6 @@ class HacksController < ApplicationController
     @vote = Vote.new(user: current_user)
     @vote.hack = @hack
     if @vote.save
-      raise
       redirect_to root_path, success: 'Vote created'
     else
       redirect_to root_path, error: 'Vote could not be created'
@@ -20,7 +19,7 @@ class HacksController < ApplicationController
   def downvote
     @vote = @hack.votes.where(user: current_user).first!
     @vote.destroy
-    redirect_to @vote, success: 'Vote deleted'
+    redirect_to root_path, success: 'Vote deleted'
   end
 
 
